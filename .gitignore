@@ -1,4 +1,12 @@
-# Logs
+# -----------------------------
+# ✅ Environment files (IMPORTANT)
+# -----------------------------
+.env
+.env.*          # catches .env.development, .env.production, etc.
+
+# -----------------------------
+# ✅ Logs
+# -----------------------------
 logs
 *.log
 npm-debug.log*
@@ -7,12 +15,17 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# -----------------------------
+# ✅ Node & Build Output
+# -----------------------------
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# -----------------------------
+# ✅ Editor & OS Files
+# -----------------------------
 .vscode/*
 !.vscode/extensions.json
 .idea
