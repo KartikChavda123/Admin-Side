@@ -4,6 +4,9 @@
 .env
 .env.*          # catches .env.development, .env.production, etc.
 
+client/.env
+Server/.env
+
 # -----------------------------
 # ✅ Logs
 # -----------------------------

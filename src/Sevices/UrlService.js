@@ -5,7 +5,7 @@ export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 export const ADD_VIDEO = `${BACKEND_URL}/api/add-video`;
 
 export const GET_VIDEO = `${BACKEND_URL}/api/get-video`;
-
+    
 //image
 
 export const ADD_IMAGE_HOME = `${BACKEND_URL}/api/add-image`;

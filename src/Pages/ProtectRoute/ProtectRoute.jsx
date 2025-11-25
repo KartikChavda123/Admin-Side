@@ -1,32 +1,21 @@
-// ProtectedRoute.jsx
+// src/Pages/ProtectRoute/ProtectRoute.jsx
 import React from "react";
 import { Navigate } from "react-router-dom";
-import * as jwt_decode from "jwt-decode";
 
-const ProtectedRoute = ({ children }) => {
-  const isTokenValid = () => {
-    const token = localStorage.getItem("token");
-    if (!token) return false;
+export default function ProtectedRoute({ children, adminOnly = false }) {
+  const user = localStorage.getItem("user");
+  const parsedUser = user ? JSON.parse(user) : null;
 
-    try {
-      const decoded = jwt_decode.default(token);
-      const currentTime = Date.now() / 1000000; // in seconds
-      return decoded.exp > currentTime; // true if token not expired
-    } catch (err) {
-      return false;
-    }
-  };
-
-  if (!isTokenValid()) {
-    // remove expired token
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-
-    // redirect to login
-    return <Navigate to="/login" />;
+  // Not logged in
+  if (!parsedUser) {
+    return <Navigate to="/login" replace />;
   }
 
-  return children;
-};
+  // Logged in but not admin (if required)
+  if (adminOnly && parsedUser.role !== "admin") {
+    return <Navigate to="/login" replace />;
+  }
 
-export default ProtectedRoute;
+  // Authorized
+  return children;
+}

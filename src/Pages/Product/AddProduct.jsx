@@ -1,33 +1,20 @@
 import React, { useEffect, useMemo, useState } from "react";
-
-import {
-  Card,
-  CardContent,
-  TextField,
-  Button,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import {Card, CardContent, TextField, Button, FormControl, InputLabel, Select, MenuItem,} from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import ImageIcon from "@mui/icons-material/Image";
 // at top with other imports
 import CloseIcon from "@mui/icons-material/Close";
-
 import Autocomplete from "@mui/material/Autocomplete";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { ApiService } from "../../Sevices/ApiService";
-import {
-  ADD_PRODUCT_API,
-  GET_CATEGORY_API,
-  GET_PRODUCT_API,
-} from "../../Sevices/UrlService";
+import {  ADD_PRODUCT_API,  GET_CATEGORY_API,  GET_PRODUCT_API,} from "../../Sevices/UrlService";
 import ThreeSixtyIcon from "@mui/icons-material/ThreeSixty";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 // at top (add this import)
 import SaveIcon from "@mui/icons-material/Save";
+
+
 
 const AddProduct = () => {
   const navigate = useNavigate();
