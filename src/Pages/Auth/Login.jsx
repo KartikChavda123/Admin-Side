@@ -61,7 +61,7 @@ const Login = () => {
 
           {/* divider */}
           <div className="flex items-center gap-3 my-6">
-          
+
             <span className="h-px flex-1 bg-slate-200" />
           </div>
 
@@ -108,8 +108,8 @@ const Login = () => {
           {/* remember / forgot */}
           <div className="mt-3 flex items-center justify-between">
             <label className="inline-flex items-center gap-2 text-sm text-slate-600 select-none">
-            
-            
+
+
             </label>
             <a href="/forgot-password" className="text-sm text-[#2E2729] hover:text-[#453B3E] hover:underline transition">
               Forgot Password?
