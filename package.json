@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build"
-   
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -14,6 +13,7 @@
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
     "@tailwindcss/vite": "^4.1.13",
+    "express": "^4.21.2",
     "file-saver": "^2.0.5",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.544.0",
