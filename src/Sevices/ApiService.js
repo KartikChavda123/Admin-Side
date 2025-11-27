@@ -9,6 +9,7 @@ export const ApiService = {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", // ✅ Added for cookies/auth
         body: JSON.stringify(data),
       });
 
@@ -28,7 +29,8 @@ export const ApiService = {
     try {
       const response = await fetch(url, {
         method: "POST",
-        body: formData, // FormData automatically sets multipart/form-data
+        credentials: "include", // ✅ Added
+        body: formData,
       });
 
       if (!response.ok) {
@@ -47,7 +49,8 @@ export const ApiService = {
     try {
       const response = await fetch(url, {
         method: "PUT",
-        body: formData, // FormData automatically sets multipart/form-data
+        credentials: "include", // ✅ Added
+        body: formData,
       });
 
       if (!response.ok) {
@@ -65,7 +68,9 @@ export const ApiService = {
   // GET request
   getDataService: async (url) => {
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        credentials: "include", // ✅ Added
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -81,9 +86,11 @@ export const ApiService = {
 
   getDataServiceById: async (endpoint, id) => {
     try {
-      const url = `${endpoint}/${id}`; // append the ID to the endpoint
+      const url = `${endpoint}/${id}`;
 
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        credentials: "include", // ✅ Added
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -105,6 +112,7 @@ export const ApiService = {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", // ✅ Added
         body: JSON.stringify(data),
       });
 
@@ -122,13 +130,13 @@ export const ApiService = {
 
   putDataServiceById: async (endpoint, id, data) => {
     try {
-      // Append ID to endpoint
       const url = `${endpoint}/${id}`;
       const response = await fetch(url, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", // ✅ Added
         body: JSON.stringify(data),
       });
 
@@ -143,11 +151,13 @@ export const ApiService = {
       throw error;
     }
   },
+
   // DELETE request
   deleteDataService: async (url) => {
     try {
       const response = await fetch(url, {
         method: "DELETE",
+        credentials: "include", // ✅ Added
       });
 
       if (!response.ok) {
@@ -165,8 +175,11 @@ export const ApiService = {
   deleteDataServiceById: async (endpoint, id) => {
     try {
       console.log("<<<id", id);
-      const url = `${endpoint}/${id}`; // append ID here
-      const response = await fetch(url, { method: "DELETE" });
+      const url = `${endpoint}/${id}`;
+      const response = await fetch(url, {
+        method: "DELETE",
+        credentials: "include", // ✅ Added
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
